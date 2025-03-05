@@ -29,7 +29,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.16.1</version>
+      <version>4.29.0</version>
     </dependency>
 
     <!-- ✅ Extent Reports 5 -->
@@ -42,8 +42,9 @@
     <dependency>
       <groupId>io.appium</groupId>
       <artifactId>java-client</artifactId>
-      <version>9.3.0</version>
+      <version>9.4.0</version>
     </dependency>
+
   </dependencies>
 
 

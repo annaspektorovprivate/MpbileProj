@@ -17,7 +17,7 @@
 //import java.io.IOException;
 //import java.net.URL;
 //import java.util.concurrent.TimeUnit;
-//import io.appium.java_client.android.AndroidDriver;
+////import io.appium.java_client.android.AndroidDriver;
 ////import io.appium.java_client.remote.MobileCapabilityType;
 //import org.openqa.selenium.remote.DesiredCapabilities;
 //import java.net.MalformedURLException;
@@ -53,7 +53,7 @@
 //        //capabilities.setCapability("appActivity", "com.example.app.MainActivity");
 //
 //        URL appiumServerURL = new URL("http://localhost:4723/wd/hub");
-//        driver = new AndroidDriver(appiumServerURL, capabilities);
+////        driver = new AndroidDriver(appiumServerURL, capabilities);
 //        driver.get("https://www.google.com");
 //    }
 //
@@ -122,19 +122,30 @@ public class Base {
         extent.attachReporter(htmlReporter);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion", "13");
-        capabilities.setCapability("deviceName", "9B041FFBA008M1");  // Device ID or name
-        capabilities.setCapability("browserName", "Chrome");  // Web testing in Chrome
-        capabilities.setCapability("noReset", true);  // Optional: preserve app state
-        capabilities.setCapability("newCommandTimeout", 300);  // Optional: command timeout
-        capabilities.setCapability("chromedriverExecutable", "path/to/chromedriver");
-        // Optional: set the path to Chromedriver (if needed)
-        // capabilities.setCapability("chromedriverExecutable", "path/to/chromedriver");
+        capabilities.setCapability("platformName", "android");
+        capabilities.setCapability("appium:deviceName", "Android Device");
+        capabilities.setCapability("appium:appPackage", "com.android.chrome");//
+        capabilities.setCapability("appium:appActivity", "com.google.android.apps.chrome.Main");
+        capabilities.setCapability("appium:newCommandTimeout", 120);
+        capabilities.setCapability("appium:hideKeyboard", true);
+        capabilities.setCapability("appium:automationName", "UiAutomator2");
+        driver = new AndroidDriver(new URL("http://localhost:4723"), capabilities);
 
-        // Start Appium server URL
-        URL appiumServerURL = new URL("http://localhost:4723/wd/hub");
-        driver = new AndroidDriver(appiumServerURL, capabilities);
+
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("platformVersion", "13");
+//        capabilities.setCapability("deviceName", "9B041FFBA008M1");  // Device ID or name
+//        capabilities.setCapability("browserName", "Chrome");  // Web testing in Chrome
+//        capabilities.setCapability("noReset", true);  // Optional: preserve app state
+//        capabilities.setCapability("newCommandTimeout", 300);  // Optional: command timeout
+//        capabilities.setCapability("chromedriverExecutable", "path/to/chromedriver");
+//        // Optional: set the path to Chromedriver (if needed)
+//        // capabilities.setCapability("chromedriverExecutable", "path/to/chromedriver");
+
+//        // Start Appium server URL
+//        URL appiumServerURL = new URL("http://localhost:4723/wd/hub");
+//        driver = new AndroidDriver(appiumServerURL, capabilities);
 
         // Launch Google in Chrome
         driver.get("https://www.google.com");
